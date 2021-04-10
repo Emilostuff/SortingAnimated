@@ -6,12 +6,13 @@ import matplotlib.animation as animation
 import random
 import bubble
 import quick
+import insertion
 
 # PARAMETERS
-n = 100  # choose size of list
-sort = 'quick'  # Choose sorting method
-out = 'show'  # Choose output format [show, gif]
-interval = 10  # Delay between steps
+n = 25  # choose size of list
+sort = 'insertion'  # Choose sorting method
+out = 'gif'  # Choose output format [show, gif]
+interval = 50  # Delay between steps
 looping = False  # Animation should loop?
 
 
@@ -58,6 +59,8 @@ if sort == 'bubble':
     bubble.sort(states, focus)
 elif sort == 'quick':
     quick.sort(states, focus)
+elif sort == 'insertion':
+    insertion.sort(states, focus)
 else:
     sys.exit()
 
@@ -85,3 +88,5 @@ elif out == 'gif':
         os.makedirs('export')
 
     ani.save('export/' + sort + str(n) + '.gif', 'pillow')
+else:
+    sys.exit()
