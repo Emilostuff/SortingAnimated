@@ -1,21 +1,17 @@
 # Bubble Sort
+import tools
+
 
 def sort(states, focus):
+
     print("Bubble Sort")
+    while True:
+        success = True
 
-    n = len(states[0])
+        for i in range(len(states[0])-1):
+            if states[-1][i] > states[-1][i+1]:
+                tools.swap(i, i+1, states, focus)
+                success = False
 
-    for j in range(n):
-        for k in range(1, n - j):
-            current = states[len(states) - 1].copy()
-            if current[j + k] < current[j]:
-                # swap
-                temp = current[j + k]
-                current[j + k] = current[j]
-                current[j] = temp
-                states.append(current)
-                focus.append([j, j+k])
-
-
-
-
+        if success:
+            return

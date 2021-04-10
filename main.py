@@ -7,8 +7,8 @@ import bubble
 import quick
 
 # PARAMETERS
-n = 20  # choose size of list
-sort = 'quick'  # Choose sorting method
+n = 50  # choose size of list
+sort = 'bubble'  # Choose sorting method
 out = 'show'  # Choose output format [show, gif]
 
 
@@ -32,11 +32,15 @@ def animate(i, data, highlight):
     if highlight[index][1] != -1:
         colors[highlight[index][1]] = 'firebrick'
 
+    offset = n/8
+
     plt.bar(list(range(1, size+1)), data[index], align='edge', color=colors)
-    plt.ylim([0, size])
+    plt.ylim([0, size+offset])
     plt.xlim([1, size+1])
     plt.axis('off')
     plt.tight_layout(pad=3)
+    plt.text(1, n+2*offset/3, sort.capitalize() + " Sort ", fontsize=20,
+             fontweight="bold", horizontalalignment='left', color="#252525")
 
 
 # make initial scrambles list
@@ -54,7 +58,7 @@ elif sort == 'quick':
 else:
     sys.exit()
 
-print("Done! " + str(len(states)) + " were performed.")
+print("Done! " + str(len(states)) + " swaps were performed.")
 
 
 # duplicate last frame, but without highlight coloring

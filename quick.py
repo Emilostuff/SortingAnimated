@@ -1,25 +1,16 @@
-# Fun Sort
+# Quick Sort
 import random
+import tools
 
 
 def sort(states, focus):
-    def swap(i1, i2):
-        new = states[-1].copy()
-        temp = new[i1]
-        new[i1] = new[i2]
-        new[i2] = temp
-
-        # save the move
-        states.append(new)
-        focus.append([i1, i2])
-
     def sort_range(arr, start, end):
         if end-start < 1:
             return
 
         # find pivot and move to end
         pivot = random.randint(start, end)
-        swap(pivot, end)
+        tools.swap(pivot, end, states, focus)
 
         while True:
             # find left
@@ -37,7 +28,7 @@ def sort(states, focus):
                     break
 
             if left < right:
-                swap(left, right)
+                tools.swap(left, right, states, focus)
             elif end-start > 0:
                 sort_range(arr, start, left-1)
                 sort_range(arr, left, end)
