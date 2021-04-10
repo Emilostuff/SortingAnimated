@@ -2,40 +2,55 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import random
+import bubble
 
 # plot setup
 fig = plt.figure()
 
 
-def animate(i, size, data):
+def animate(i, data, highlight):
+    index = min(i, len(data)-1)
+    size = len(data[0])
     fig.clear()
-    plt.bar(list(range(1, size+1)), data[min(i, len(data)-1)], align='center', color='blue')
+
+    # create highlight color array
+    colors = []
+    for j in range(size):
+        colors.append('silver')
+
+    if highlight[index][0] != -1:
+        colors[highlight[index][0]] = 'peru'
+
+    if highlight[index][1] != -1:
+        colors[highlight[index][1]] = 'firebrick'
+
+    plt.bar(list(range(1, size+1)), data[index], align='edge', color=colors)
+    plt.ylim([0, size])
+    plt.xlim([1, size+1])
+    plt.axis('off')
+    plt.tight_layout(pad=3)
 
 
-# set initial conditions
-n = 50
+# setup
+n = 100
 states = []
-initState = list(range(1, n+1))
-random.shuffle(initState)
-states.append(initState)
+init = list(range(1, n + 1))
+random.shuffle(init)
+states.append(init)
 
+focus = [[-1, -1]]
 
-# generate sorting steps
-for j in range(n):
-    for k in range(1, n-j):
-        current = states[len(states)-1].copy()
-        if current[j+k] < current[j]:
-            # swap
-            temp = current[j+k]
-            current[j+k] = current[j]
-            current[j] = temp
-            states.append(current)
+# sort
+swaps = bubble.sort(states, focus)
 
-swaps = len(states)-1
-print("Number of swaps performed: " + str(swaps))
+# fix getting last frame without highlight coloring on gif
+states.append(states[len(states)-1].copy())
+focus.append([-1, -1])
+states.append(states[0].copy())
+focus.append([-1, -1])
 
 
 # plot the result
-ani = animation.FuncAnimation(fig, animate,interval=20, fargs=[n, states], frames=swaps+50)
-#plt.show()
-ani.save('bubbleSort.gif', 'pillow')
+ani = animation.FuncAnimation(fig, animate, interval=50, fargs=[states, focus], frames=len(states)+30)
+# plt.show()
+ani.save('bubbleSort100.gif', 'pillow')

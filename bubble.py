@@ -1,5 +1,6 @@
+# Bubble Sort
 
-def bubble_sort(states):
+def sort(states, focus):
     print("Bubble Sort")
 
     n = len(states[0])
@@ -13,10 +14,10 @@ def bubble_sort(states):
                 current[j + k] = current[j]
                 current[j] = temp
                 states.append(current)
+                focus.append([j, j+k])
 
     swaps = len(states) - 1
     print("Done! Swaps performed: " + str(swaps))
 
-    return swaps
 
 
