@@ -16,8 +16,6 @@ def sort(states, focus):
                 states.append(current)
                 focus.append([j, j+k])
 
-    swaps = len(states) - 1
-    print("Done! Swaps performed: " + str(swaps))
 
 
 
