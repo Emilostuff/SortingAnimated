@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import random
 import bubble
+import quick
 
 # plot setup
 fig = plt.figure()
@@ -32,7 +33,7 @@ def animate(i, data, highlight):
 
 
 # setup
-n = 100
+n = 25
 states = []
 init = list(range(1, n + 1))
 random.shuffle(init)
@@ -41,16 +42,16 @@ states.append(init)
 focus = [[-1, -1]]
 
 # sort
-swaps = bubble.sort(states, focus)
+#bubble.sort(states, focus)
+quick.sort(states, focus)
 
-# fix getting last frame without highlight coloring on gif
+# duplicate last frame, but without highlight coloring
 states.append(states[len(states)-1].copy())
 focus.append([-1, -1])
-states.append(states[0].copy())
-focus.append([-1, -1])
+
 
 
 # plot the result
 ani = animation.FuncAnimation(fig, animate, interval=50, fargs=[states, focus], frames=len(states)+30)
 # plt.show()
-ani.save('bubbleSort100.gif', 'pillow')
+# ani.save('bubbleSort.gif', 'pillow')
