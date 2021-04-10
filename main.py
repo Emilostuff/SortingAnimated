@@ -7,13 +7,14 @@ import random
 import bubble
 import quick
 import insertion
+import selection
 
 # PARAMETERS
 n = 25  # choose size of list
-sort = 'insertion'  # Choose sorting method
+sort = 'selection'  # Choose sorting method
 out = 'gif'  # Choose output format [show, gif]
 interval = 50  # Delay between steps
-looping = False  # Animation should loop?
+looping = True  # Animation should loop?
 
 
 # plot setup
@@ -61,6 +62,8 @@ elif sort == 'quick':
     quick.sort(states, focus)
 elif sort == 'insertion':
     insertion.sort(states, focus)
+elif sort == 'selection':
+    selection.sort(states, focus)
 else:
     sys.exit()
 
@@ -73,7 +76,7 @@ focus.append([-1, -1])
 
 
 # animate
-ani = animation.FuncAnimation(fig, animate, interval=interval, fargs=[states, focus], frames=len(states)+interval*3, repeat=looping)
+ani = animation.FuncAnimation(fig, animate, interval=interval, fargs=[states, focus], frames=len(states)+30, repeat=looping)
 
 if out == 'show':
     plt.show()
