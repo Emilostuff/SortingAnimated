@@ -1,5 +1,6 @@
 # importing libraries
 import sys
+import os
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import random
@@ -76,5 +77,9 @@ elif out == 'gif':
     if True:
         states.append(states[0].copy())
         focus.append([-1, -1])
+
+    # create output folder if it doesn't exist
+    if not os.path.exists('export'):
+        os.makedirs('export')
 
     ani.save('export/' + sort + str(n) + '.gif', 'pillow')
