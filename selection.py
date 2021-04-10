@@ -4,8 +4,6 @@ import tools
 
 def sort(states, focus):
 
-    print("Selection Sort")
-
     for i in range(len(states[0]) - 1):
         min = i
         for j in range(i+1, len(states[0])):

@@ -4,7 +4,6 @@ import tools
 
 def sort(states, focus):
 
-    print("Bubble Sort")
     while True:
         success = True
 

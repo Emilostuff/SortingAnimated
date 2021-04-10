@@ -37,5 +37,4 @@ def sort(states, focus):
                 return
 
     # sorting
-    print("Quick Sort")
     sort_range(0, len(states[0]) - 1)
