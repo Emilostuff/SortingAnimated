@@ -8,10 +8,11 @@ import bubble
 import quick
 import insertion
 import selection
+import cocktail
 
 # PARAMETERS
 n = 25  # choose size of list
-sort = 'selection'  # Choose sorting method
+sort = 'cocktail'  # Choose sorting method
 out = 'gif'  # Choose output format [show, gif]
 interval = 50  # Delay between steps
 looping = True  # Animation should loop?
@@ -64,6 +65,8 @@ elif sort == 'insertion':
     insertion.sort(states, focus)
 elif sort == 'selection':
     selection.sort(states, focus)
+elif sort == 'cocktail':
+    cocktail.sort(states, focus)
 else:
     sys.exit()
 

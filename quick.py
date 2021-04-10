@@ -4,7 +4,7 @@ import tools
 
 
 def sort(states, focus):
-    def sort_range(arr, start, end):
+    def sort_range(start, end):
         if end-start < 1:
             return
 
@@ -30,12 +30,12 @@ def sort(states, focus):
             if left < right:
                 tools.swap(left, right, states, focus)
             elif end-start > 0:
-                sort_range(arr, start, left-1)
-                sort_range(arr, left, end)
+                sort_range(start, left-1)
+                sort_range(left, end)
                 return
             else:
                 return
 
     # sorting
     print("Quick Sort")
-    sort_range(states[0], 0, len(states[0]) - 1)
+    sort_range(0, len(states[0]) - 1)
