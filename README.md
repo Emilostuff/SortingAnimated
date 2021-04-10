@@ -5,3 +5,4 @@ Animations of different sorting algorithms.
 ![Insertion Sort](https://media.giphy.com/media/oRjC0U4MIY5mVwp3u8/giphy.gif)
 ![Bubble Sort](https://media.giphy.com/media/iGTIRIM01UP7UEG1P3/giphy.gif)
 ![Selection Sort](https://media.giphy.com/media/kMzliRqLytxRa60fFg/giphy.gif)
+![Cocktail Sort](https://media.giphy.com/media/J49perVVrjJvlevQZ3/giphy.gif)
