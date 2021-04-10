@@ -8,9 +8,11 @@ import bubble
 import quick
 
 # PARAMETERS
-n = 50  # choose size of list
-sort = 'bubble'  # Choose sorting method
+n = 100  # choose size of list
+sort = 'quick'  # Choose sorting method
 out = 'show'  # Choose output format [show, gif]
+interval = 10  # Delay between steps
+looping = False  # Animation should loop?
 
 
 # plot setup
@@ -68,7 +70,7 @@ focus.append([-1, -1])
 
 
 # animate
-ani = animation.FuncAnimation(fig, animate, interval=50, fargs=[states, focus], frames=len(states)+30)
+ani = animation.FuncAnimation(fig, animate, interval=interval, fargs=[states, focus], frames=len(states)+interval*3, repeat=looping)
 
 if out == 'show':
     plt.show()

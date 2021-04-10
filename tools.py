@@ -1,10 +1,10 @@
 # Tools to be shared across sorting algorithms
 
 # swap that makes new entry to states-list and focus-list
-def swap(i1, i2, states, focus):
+def swap(a, b, states, focus):
     new = states[-1].copy()
-    temp = new[i1]
-    new[i1] = new[i2]
-    new[i2] = temp
+    temp = new[a]
+    new[a] = new[b]
+    new[b] = temp
     states.append(new)
-    focus.append([i1, i2])
+    focus.append([a, b])
