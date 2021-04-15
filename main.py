@@ -10,10 +10,11 @@ import insertion
 import selection
 import cocktail
 import comb
+import merge
 
 # PARAMETERS
 n = 25  # choose size of list
-sort = 'comb'  # Choose sorting method
+sort = 'merge'  # Choose sorting method
 out = 'gif'  # Choose output format [show, gif]
 interval = 50  # Delay between steps
 looping = True  # Animation should loop?
@@ -70,6 +71,8 @@ elif sort == 'cocktail':
     cocktail.sort(states, focus)
 elif sort == 'comb':
     comb.sort(states, focus)
+elif sort == 'merge':
+    merge.sort(states, focus)
 else:
     sys.exit()
 

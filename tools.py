@@ -8,3 +8,11 @@ def swap(a, b, states, focus):
     new[b] = temp
     states.append(new)
     focus.append([a, b])
+
+
+def shift_right(start, end, states, focus):
+    new = states[-1].copy()
+    new[start: end+1] = new[end: end+1] + new[start: end]
+    states.append(new)
+    focus.append([start, end])
+
